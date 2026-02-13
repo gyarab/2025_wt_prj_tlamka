@@ -1,68 +1,143 @@
-# Webová aplikace – Projekt – Matouš Tlamka
+# Webová aplikace  
+## Projekt – Matouš Tlamka
 
 **Vytvořeno v předmětu Webové technologie**  
 Gymnázium Arabská, Praha  
-školní rok **2025/2026**
+Školní rok **2025/2026**
 
 > „Jednoduchost je vrchol sofistikovanosti.“  
 > — Leonardo da Vinci
 
+---
 
 ## O projektu
 
-Tato webová aplikace vznikla jako projekt v předmětu Webové technologie.  
+Tato webová aplikace vznikla jako projekt v předmětu **Webové technologie**.
 
-<!--
-## Technologie
+---
 
-- **Jazyk**         Python 3.11+
-- **Framework**     Flask / FastAPI / Django (doplň ten, který používáš)
-- **Frontend**      HTML5 • CSS3 • JavaScript  
-  (případně + htmx / Alpine.js / Tailwind CSS / Bootstrap)
-- **Šablony**       Jinja2
-- **Databáze**      SQLite (vývoj) • PostgreSQL (případná produkce)
-- **Správa balíčků** pip + requirements.txt
-- **Nástroje**      _Ruff, black, pre-commit, pytest (doporučeno)_
--->
+## Použité technologie
 
-## Rychlý start (lokální vývoj)
+### Backend
+- Python 3.11+
+- Flask / FastAPI / Django *(doplň používaný framework)*
 
-### 1. Vytvoření virtuálního prostředí
+### Frontend
+- HTML5  
+- CSS3  
+- JavaScript  
+
+### Šablony
+- Jinja2
+
+### Databáze
+- SQLite (vývoj)
+- PostgreSQL (volitelně)
+
+### Správa závislostí
+- pip  
+- requirements.txt  
+
+---
+
+# Rychlý start (lokální vývoj)
+
+## 1️. Vytvoření virtuálního prostředí
 
 ```bash
-# Doporučený způsob (nejčistší pojmenování)
 python3 -m venv .venv
+```
 
+---
 
-### 2. Aktivace prostředí
+## 2️. Aktivace prostředí
 
-# macOS / Linux / Git Bash / WSL
+### macOS / Linux / Git Bash / WSL
+
+```bash
 source .venv/bin/activate
+```
 
-# Windows – PowerShell (nejčastější ve škole)
+### Windows – PowerShell
+
+```bash
 .venv\Scripts\Activate.ps1
+```
 
-# Windows – příkazový řádek (cmd)
+### Windows – Příkazový řádek (cmd)
+
+```bash
 .venv\Scripts\activate.bat
+```
 
-# Pokud PowerShell hlásí chybu o spouštění skriptů:
-# Jednorázově spusť (jen jednou):
-# Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+Pokud PowerShell hlásí chybu o spouštění skriptů, spusť jednorázově:
 
+```bash
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+```
 
-### 3. Instalace závislostí
+---
 
-# Aktualizace pip (doporučeno)
+## 3️. Instalace závislostí
+
+Aktualizace pip (doporučeno):
+
+```bash
 python -m pip install --upgrade pip setuptools wheel
+```
 
-# Instalace projektu
+Instalace projektu:
+
+```bash
 pip install -r requirements.txt
+```
+
+---
+
+## 4️. Spuštění aplikace
+
+### Flask
+
+```bash
+flask run
+```
+
+### FastAPI
+
+```bash
+uvicorn main:app --reload
+```
+
+### Django
+
+```bash
+python manage.py runserver
+```
+
+Aplikace bude dostupná typicky na:
+
+```
+http://127.0.0.1:8000
+```
+
+nebo
+
+```
+http://127.0.0.1:5000
+```
+
+---
 
 
-### 4. spuštění aplikace
-xy
+## 📄 Licence
 
+Projekt byl vytvořen pro studijní účely v rámci výuky.  
+Není určen pro komerční využití.
 
-Matouš Tlamka
-Gymnázium Arabská, Praha
-školní rok 2025/2026
+---
+
+## 👨‍🎓 Autor
+
+Matouš Tlamka  
+Gymnázium Arabská, Praha  
+Školní rok 2025/2026
