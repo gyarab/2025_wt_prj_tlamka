@@ -10,17 +10,44 @@ Gymnázium Arabská, Praha
 
 ---
 
+# Obsah
+
+1. [O projektu](#o-projektu)  
+<!--
+2. [Funkce aplikace](#funkce-aplikace)  
+3. [Použité technologie](#použité-technologie)  
+4. [Struktura projektu](#struktura-projektu)  
+-->
+2. [Rychlý start (lokální vývoj)](#rychlý-start-lokální-vývoj)  
+3. [Spuštění aplikace](#spuštění-aplikace)  
+4. [Licence](#licence)  
+5. [Autor](#autor)  
+
+---
+
 ## O projektu
 
 Tato webová aplikace vznikla jako projekt v předmětu **Webové technologie**.
 
+<!--
 ---
+## Funkce aplikace
 
+- Dynamické generování webových stránek  
+- Práce s databází  
+- Uživatelské vstupy (formuláře)  
+- Backend logika v Pythonu  
+- Oddělení backendu a frontendové vrstvy  
+- Připravenost na další rozšíření  
+
+---
+-->
+<!--
 ## Použité technologie
 
 ### Backend
-- Python 3.11+
-- Flask / FastAPI / Django *(doplň používaný framework)*
+- Python 3.11+  
+- Flask / FastAPI / Django *(doplň používaný framework)*  
 
 ### Frontend
 - HTML5  
@@ -28,11 +55,11 @@ Tato webová aplikace vznikla jako projekt v předmětu **Webové technologie**.
 - JavaScript  
 
 ### Šablony
-- Jinja2
+- Jinja2  
 
 ### Databáze
-- SQLite (vývoj)
-- PostgreSQL (volitelně)
+- SQLite (vývoj)  
+- PostgreSQL (volitelně)  
 
 ### Správa závislostí
 - pip  
@@ -40,17 +67,39 @@ Tato webová aplikace vznikla jako projekt v předmětu **Webové technologie**.
 
 ---
 
+## Struktura projektu
+
+```text
+projekt/
+│
+├── app/                # hlavní aplikační logika
+├── templates/          # HTML šablony
+├── static/             # CSS, JS, obrázky
+├── .venv/              # virtuální prostředí (není ve verzování)
+├── requirements.txt    # seznam závislostí
+└── README.md           # dokumentace projektu
+```
+-->
+
+---
+
 # Rychlý start (lokální vývoj)
 
-## 1️. Vytvoření virtuálního prostředí
+## 1. Vytvoření virtuálního prostředí
 
 ```bash
 python3 -m venv .venv
 ```
 
+Na Windows můžeš případně použít:
+
+```bash
+python -m venv .venv
+```
+
 ---
 
-## 2️. Aktivace prostředí
+## 2. Aktivace prostředí
 
 ### macOS / Linux / Git Bash / WSL
 
@@ -78,7 +127,7 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 
 ---
 
-## 3️. Instalace závislostí
+## 3. Instalace závislostí
 
 Aktualizace pip (doporučeno):
 
@@ -94,7 +143,7 @@ pip install -r requirements.txt
 
 ---
 
-## 4️. Spuštění aplikace
+## 4. Spuštění aplikace
 
 ### Flask
 
@@ -128,15 +177,14 @@ http://127.0.0.1:5000
 
 ---
 
-
-## 📄 Licence
+## Licence
 
 Projekt byl vytvořen pro studijní účely v rámci výuky.  
 Není určen pro komerční využití.
 
 ---
 
-## 👨‍🎓 Autor
+## Autor
 
 Matouš Tlamka  
 Gymnázium Arabská, Praha  
