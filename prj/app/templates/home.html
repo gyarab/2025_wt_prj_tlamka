@@ -1,9 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webová aplikace | MT_GA</title>
+    <title>I.D.E.A. | MT_GA</title>
+    
+    <link rel="icon" type="image/png" href="{% static 'matoustlamkaMbile.png' %}">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .hero-section {
@@ -17,7 +21,10 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">Matouš Tlamka Projekt</a>
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="{% static 'matoustlamkaMbile.png' %}" alt="Logo Matouš Tlamka" width="30" height="30" class="me-2">
+                I.D.E.A.
+            </a>
         </div>
     </nav>
 
@@ -53,9 +60,12 @@
 
     </main>
 
-    <footer class="bg-dark text-center text-light py-3 mt-5">
+    <footer class="bg-dark text-center text-light py-4 mt-5">
         <div class="container">
-            <small>&copy; 2026 | Gymnázium Arabská | Matouš Tlamka</small>
+            <small class="d-block mb-1">&copy; 2026 | Gymnázium Arabská | Matouš Tlamka</small>
+            <small>
+                <a href="https://matous-tlamka.eu" target="_blank" class="text-white-50 text-decoration-none">matous-tlamka.eu</a>
+            </small>
         </div>
     </footer>
 

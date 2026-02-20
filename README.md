@@ -22,6 +22,9 @@ Gymnázium Arabská, Praha
 
 ## O projektu
 
+**I.D.E.A.**
+Interaktivní Databáze Epistemologie a Autorů
+
 Tato webová aplikace vznikla jako školní projekt a slouží jako interaktivní databáze pro všechny, které zajímá filosofie a vývoj lidského myšlení. Cílem je přehledně propojit významné myslitele s jejich hlavními myšlenkami, historickým obdobím a zemí, ze které pocházejí.
 
 Uživatelé tu mohou jednoduše vyhledávat a procházet různé kategorie – od konkrétních filosofů přes historické epochy až po hlavní filosofické směry a disciplíny, jako je třeba metafyzika nebo gnoseologie.
