@@ -6,48 +6,57 @@
     <title>Webová aplikace | MT_GA</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { background-color: #f8f9fa; }
-        .hero-section { padding: 60px 0; background: #fff; border-bottom: 1px solid #dee2e6; }
+        .hero-section {
+            padding: 50px 0;
+            background-color: #ffffff;
+            border-bottom: 1px solid #dee2e6;
+        }
     </style>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100 bg-light">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">Matouš Tlamka Project</a>
+            <a class="navbar-brand" href="#">Matouš Tlamka Projekt</a>
         </div>
     </nav>
 
-    <div class="hero-section">
-        <div class="container text-center">
-            <h1 class="display-4 font-weight-bold">Webová aplikace</h1>
-            <p class="lead text-muted">Vznikla v předmětu Webové technologie na Gymnáziu Arabská</p>
-            <p>Školní rok: <strong>2025/2026</strong></p>
-            <hr class="my-4">
-            <div class="alert alert-info" role="alert">
-                Stav aplikace: <strong>Dynamické propojení aktivní!</strong> 
+    <main class="mb-auto">
+        
+        <div class="hero-section text-center shadow-sm">
+            <div class="container">
+                <h1 class="display-5 fw-bold text-dark">Webová aplikace</h1>
+                <p class="lead text-secondary">Vznikla v předmětu Webové technologie na Gymnáziu Arabská</p>
+                <p class="mb-4">Školní rok: <strong>2025/2026</strong></p>
+                
+                <div class="alert alert-info d-inline-block border-0 shadow-sm" role="alert">
+                    Stav aplikace: <strong>Dynamické propojení aktivní!</strong>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-                <h3>Vítejte v našem projektu</h3>
-                <p>Tato stránka je vykreslována pomocí Django <code>TemplateView</code>. Soubor <code>home.html</code> byl úspěšně propojen s <code>views.py</code> a <code>urls.py</code>.</p>
-                
-                <div class="card mt-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Lokální prostředí</h5>
-                        <p class="card-text">Aktuálně běžíš ve <code>venv</code></p>
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h3 class="border-bottom pb-2">Vítejte v mém projektu</h3>
+                    <p class="mt-3 text-muted">Tato stránka aktuálně demonstruje čistý a responzivní návrh uživatelského rozhraní s využitím frameworku Bootstrap.</p>
+                    
+                    <div class="card mt-4 border-0 shadow-sm">
+                        <div class="card-body bg-white rounded border-start border-4 border-primary">
+                            <h5 class="card-title">Lokální prostředí</h5>
+                            <p class="card-text text-muted">Aktuálně běžíš ve virtuálním prostředí (<code>venv</code>).</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <footer class="text-center mt-5 py-4 text-muted">
-        <small>&copy; 2026 | Gymnázium Arabská | Matouš Tlamka</small>
+    </main>
+
+    <footer class="bg-dark text-center text-light py-3 mt-5">
+        <div class="container">
+            <small>&copy; 2026 | Gymnázium Arabská | Matouš Tlamka</small>
+        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

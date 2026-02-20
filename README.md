@@ -13,11 +13,6 @@ Gymnázium Arabská, Praha
 # Obsah
 
 1. [O projektu](#o-projektu)  
-<!--
-2. [Funkce aplikace](#funkce-aplikace)  
-3. [Použité technologie](#použité-technologie)  
-4. [Struktura projektu](#struktura-projektu)  
--->
 2. [Rychlý start (lokální vývoj)](#rychlý-start-lokální-vývoj)  
 3. [Spuštění aplikace](#spuštění-aplikace)  
 4. [Licence](#licence)  
@@ -27,59 +22,9 @@ Gymnázium Arabská, Praha
 
 ## O projektu
 
-Tato webová aplikace vznikla jako projekt v předmětu **Webové technologie**.
+Tato webová aplikace vznikla jako školní projekt a slouží jako interaktivní databáze pro všechny, které zajímá filosofie a vývoj lidského myšlení. Cílem je přehledně propojit významné myslitele s jejich hlavními myšlenkami, historickým obdobím a zemí, ze které pocházejí.
 
-<!--
----
-## Funkce aplikace
-
-- Dynamické generování webových stránek  
-- Práce s databází  
-- Uživatelské vstupy (formuláře)  
-- Backend logika v Pythonu  
-- Oddělení backendu a frontendové vrstvy  
-- Připravenost na další rozšíření  
-
----
--->
-<!--
-## Použité technologie
-
-### Backend
-- Python 3.11+  
-- Flask / FastAPI / Django *(doplň používaný framework)*  
-
-### Frontend
-- HTML5  
-- CSS3  
-- JavaScript  
-
-### Šablony
-- Jinja2  
-
-### Databáze
-- SQLite (vývoj)  
-- PostgreSQL (volitelně)  
-
-### Správa závislostí
-- pip  
-- requirements.txt  
-
----
-
-## Struktura projektu
-
-```text
-projekt/
-│
-├── app/                # hlavní aplikační logika
-├── templates/          # HTML šablony
-├── static/             # CSS, JS, obrázky
-├── .venv/              # virtuální prostředí (není ve verzování)
-├── requirements.txt    # seznam závislostí
-└── README.md           # dokumentace projektu
-```
--->
+Uživatelé tu mohou jednoduše vyhledávat a procházet různé kategorie – od konkrétních filosofů přes historické epochy až po hlavní filosofické směry a disciplíny, jako je třeba metafyzika nebo gnoseologie.
 
 ---
 
@@ -180,7 +125,6 @@ http://127.0.0.1:5000
 ## Licence
 
 Projekt byl vytvořen pro studijní účely v rámci výuky.  
-Není určen pro komerční využití.
 
 ---
 
