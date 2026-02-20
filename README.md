@@ -106,7 +106,11 @@ http://127.0.0.1:5000
 
 ## Licence
 
-Projekt byl vytvořen pro studijní účely v rámci výuky.  
+## Licence
+
+Tento projekt podléhá přísné proprietární licenci. **Všechna práva jsou vyhrazena.**
+
+Plné znění licenčního ujednání, které definuje přesné hranice užití, naleznete v přiloženém souboru [`LICENSE`](LICENSE).
 
 ---
 
