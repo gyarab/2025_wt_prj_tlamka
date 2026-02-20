@@ -13,7 +13,7 @@ Gymnázium Arabská, Praha
 # Obsah
 
 1. [O projektu](#o-projektu)  
-2. [Rychlý start)](#rychlý-start)   
+2. [Rychlý start](#rychlý-start)   
 3. [Licence](#licence)  
 4. [Autor](#autor)  
 
