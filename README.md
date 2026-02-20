@@ -1,5 +1,5 @@
 # I.D.E.A. 
-## Interaktivní Databáze Epistemologie a Axiomů – Matouš Tlamka
+## Interaktivní Databáze Epistemologie a Axiomů
 
 **Vytvořeno v rámci předmětu Webové technologie**  
 Gymnázium Arabská, Praha  
