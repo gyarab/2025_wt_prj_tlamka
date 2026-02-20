@@ -13,7 +13,7 @@ Gymnázium Arabská, Praha
 # Obsah
 
 1. [O projektu](#o-projektu)  
-2. [Rychlý start (lokální vývoj)](#rychlý-start-lokální-vývoj)   
+2. [Rychlý start)](#rychlý-start)   
 3. [Licence](#licence)  
 4. [Autor](#autor)  
 
@@ -30,7 +30,7 @@ Uživatelé tu mohou jednoduše vyhledávat a procházet různé kategorie – o
 
 ---
 
-# Rychlý start (lokální vývoj)
+# Rychlý start
 
 ## 1. Vytvoření virtuálního prostředí
 
@@ -105,8 +105,6 @@ http://127.0.0.1:5000
 ```
 
 ---
-
-## Licence
 
 ## Licence
 
