@@ -1,7 +1,7 @@
-# Webová aplikace  
-## Projekt – Matouš Tlamka
+# I.D.E.A. 
+## Interaktivní Databáze Epistemologie a Axiomů – Matouš Tlamka
 
-**Vytvořeno v předmětu Webové technologie**  
+**Vytvořeno v rámci předmětu Webové technologie**  
 Gymnázium Arabská, Praha  
 Školní rok **2025/2026**
 
@@ -13,10 +13,9 @@ Gymnázium Arabská, Praha
 # Obsah
 
 1. [O projektu](#o-projektu)  
-2. [Rychlý start (lokální vývoj)](#rychlý-start-lokální-vývoj)  
-3. [Spuštění aplikace](#spuštění-aplikace)  
-4. [Licence](#licence)  
-5. [Autor](#autor)  
+2. [Rychlý start (lokální vývoj)](#rychlý-start-lokální-vývoj)   
+3. [Licence](#licence)  
+4. [Autor](#autor)  
 
 ---
 
