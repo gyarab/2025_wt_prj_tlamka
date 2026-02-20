@@ -36,12 +36,6 @@ Uživatelé tu mohou jednoduše vyhledávat a procházet různé kategorie – o
 python3 -m venv .venv
 ```
 
-Na Windows můžeš případně použít:
-
-```bash
-python -m venv .venv
-```
-
 ---
 
 ## 2. Aktivace prostředí
@@ -89,18 +83,6 @@ pip install -r requirements.txt
 ---
 
 ## 4. Spuštění aplikace
-
-### Flask
-
-```bash
-flask run
-```
-
-### FastAPI
-
-```bash
-uvicorn main:app --reload
-```
 
 ### Django
 
