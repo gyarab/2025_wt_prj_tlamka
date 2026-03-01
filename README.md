@@ -24,9 +24,15 @@ Gymnázium Arabská, Praha
 **I.D.E.A.**
 Interaktivní Databáze Epistemologie a Axiomů
 
-Tato webová aplikace vznikla jako školní projekt a slouží jako interaktivní databáze pro všechny, které zajímá filosofie a vývoj lidského myšlení. Cílem je přehledně propojit významné myslitele s jejich hlavními myšlenkami, historickým obdobím a zemí, ze které pocházejí.
+Cílem tohoto projektu je vytvořit komplexní relační <u>databázi</u>, která systematicky mapuje vývoj lidského <u>myšlení</u>. V dnešní době přehlcené povrchními informacemi chci nabídnout strukturovaný <u>nástroj</u> pro skutečně hluboké <u>studium</u>.
 
-Uživatelé tu mohou jednoduše vyhledávat a procházet různé kategorie – od konkrétních filosofů přes historické epochy až po hlavní filosofické směry a disciplíny, jako je třeba metafyzika nebo gnoseologie.
+Základními stavebními kameny celé <u>aplikace</u> jsou jednotliví <u>myslitelé</u>. Každý <u>autor</u> je v <u>systému</u> pevně ukotven a provázán se svými klíčovými <u>díly</u>, historickou <u>epochou</u> a geografickým <u>původem</u>. Nejde však o pouhý strohý <u>seznam</u> jmen. Hlavní přidanou hodnotou je úzké propojení na konkrétní <u>koncepty</u> a myšlenkové <u>směry</u> (jako je například <u>stoicismus</u> či <u>existencialismus</u>). Celá <u>architektura</u> je dále kategorizována podle fundamentálních <u>disciplín</u>, s primárním důrazem na <u>metafyziku</u> a <u>gnoseologii</u>. To umožňuje přesně sledovat evoluci určitého <u>problému</u> napříč staletími a pochopit tak skryté <u>souvislosti</u>.
+
+Z hlediska uživatelského <u>přístupu</u> je web rozdělen do tří úrovní. Běžný nepřihlášený <u>návštěvník</u> může volně procházet veřejný <u>katalog</u>, filtrovat <u>záznamy</u> podle zadaných <u>kritérií</u> a číst si základní <u>definice</u> či <u>životopisy</u>.
+
+Aby se však z pasivního čtenáře stal aktivní účastník, je vyžadována <u>registrace</u>. Přihlášený <u>uživatel</u> získává prostor pro hlubší <u>interakci</u>. Může k jednotlivým <u>tezím</u> přidávat vlastní <u>komentáře</u>, reflektovat přečtené <u>texty</u> a především si ukládat stěžejní <u>citáty</u> do osobního <u>výběru</u>. Vzniká tak izolovaný <u>prostor</u> pro racionální utřídění vlastního <u>světonázoru</u>.
+
+Nejvyšší <u>oprávnění</u> drží <u>administrátor</u>, který ručí za faktickou správnost celého <u>lexikonu</u>. Přes zabezpečené redakční <u>rozhraní</u> přidává nové <u>entity</u>, spravuje relační <u>vazby</u> a moderuje uživatelský <u>obsah</u>. Po technologické <u>stránce</u> projekt plně využívá <u>framework</u> k zajištění stabilního chodu a pokročilé práce s <u>daty</u>.
 
 ---
 
