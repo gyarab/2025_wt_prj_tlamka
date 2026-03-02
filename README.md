@@ -35,7 +35,7 @@ Aby se však z pasivního čtenáře stal aktivní účastník, je vyžadována 
 Nejvyšší <u>oprávnění</u> drží <u>administrátor</u>, který ručí za faktickou správnost celého <u>lexikonu</u>. Přes zabezpečené redakční <u>rozhraní</u> přidává nové <u>entity</u>, spravuje relační <u>vazby</u> a moderuje uživatelský <u>obsah</u>. Po technologické <u>stránce</u> projekt plně využívá <u>framework</u> k zajištění stabilního chodu a pokročilé práce s <u>daty</u>.
 
 ---
-### Návrh User Flow
+### Návrh – User Flow
 
 ![UserFlow](dokumentace/userFlow_idea.png)
 
