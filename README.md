@@ -39,6 +39,7 @@ Nejvyšší <u>oprávnění</u> drží <u>administrátor</u>, který ručí za f
 
 ![UserFlow](dokumentace/userFlow_idea.png)
 
+
 ![Původní návrh User Flow](dokumentace/userFlow.jpg)
 
 
