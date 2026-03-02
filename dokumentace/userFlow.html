@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Flow | I.D.E.A. | Matouš Tlamka</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ff6600;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .header-container {
+            width: 100%;
+            max-width: 1400px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+
+        .brand-box {
+            border: 2px solid #ff6600;
+            padding: 15px;
+            width: 120px;
+            text-align: center;
+        }
+
+        .brand-year {
+            text-align: center;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .brand-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        .brand-name {
+            font-weight: bold;
+            font-size: 1.1em;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-size: 3em;
+            letter-spacing: 8px;
+            border-bottom: 3px solid #ff6600;
+            padding-bottom: 15px;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .diagram-container {
+            width: 100%;
+            max-width: 1400px;
+            background-color: #050505;
+            border: 1px solid #1a1a1a;
+            padding: 30px;
+            border-radius: 4px;
+            box-shadow: 0 0 20px rgba(255, 102, 0, 0.05);
+            overflow-x: auto;
+        }
+
+
+        .spacer {
+            width: 154px; 
+        }
+    </style>
+
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#000000',
+                primaryTextColor: '#ff6600',
+                primaryBorderColor: '#ff6600',
+                lineColor: '#ff6600',
+                secondaryColor: '#0a0a0a',
+                tertiaryColor: '#000000',
+                nodeBorder: '#ff6600',
+                clusterBkg: '#000000',
+                background: '#000000',
+                fontFamily: 'Segoe UI, sans-serif'
+            }
+        });
+    </script>
+</head>
+<body>
+
+    <div class="header-container">
+        <div class="brand-box">
+            <div class="brand-year">2026</div>
+            <img src="matoustlamkaM.png" alt="Logo Matouš Tlamka" class="brand-logo">
+            <div class="brand-name">Matouš<br>Tlamka</div>
+        </div>
+        
+        <div style="display: flex; align-items: center;">
+            <h1>I. D. E. A.</h1>
+        </div>
+        
+        <div class="spacer"></div>
+    </div>
+
+    <div class="diagram-container">
+        <pre class="mermaid">
+        graph LR
+            %% Definice uzlů (stránek)
+            DO[Domovská obrazovka]
+            ZEB[Žebříčky]
+            PF[Přihlašovací formulář]
+            PR[Přihlášení / Registrace]
+            VU[Vytvoření účtu]
+            ADM[Administrace]
+            UP[Uživatelský panel]
+            
+            SF[Seznam filosofů]
+            SE[Seznam epoch]
+            SS[Seznam směrů]
+            SL[Slovník]
+            
+            DF[Detail konkrétního filosofa]
+            DE[Detail konkrétní epochy]
+            DS[Detail konkrétního směru]
+
+            %% Mapování navigačních cest (tvary šipek)
+            DO --> ZEB
+            DO --> PF
+            PF <--> PR
+            PR --> VU
+            VU --> PR
+            PR --> ADM
+            PR --> UP
+
+            DO --> SF
+            DO --> SE
+            DO --> SS
+            DO --> SL
+
+            SF --> DF
+            SE --> DE
+            SS --> DS
+
+            DF <--> DE
+            DE <--> DS
+            DS <--> DF
+
+            DF --> SL
+            DS --> SL
+        </pre>
+    </div>
+
+</body>
+</html>
