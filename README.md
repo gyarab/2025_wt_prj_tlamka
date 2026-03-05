@@ -21,7 +21,7 @@ Gymnázium Arabská, Praha
 
 ## O projektu
 
-**I.D.E.A.**
+**I.D.E.A.** 
 Interaktivní Databáze Epistemologie a Axiomů
 
 Cílem tohoto projektu je vytvořit komplexní relační <u>databázi</u>, která systematicky mapuje vývoj lidského <u>myšlení</u>. V dnešní době přehlcené povrchními informacemi chci nabídnout strukturovaný <u>nástroj</u> pro skutečně hluboké <u>studium</u>.
