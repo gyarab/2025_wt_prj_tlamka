@@ -21,7 +21,8 @@ Gymnázium Arabská, Praha
 
 ## O projektu
 
-I.D.E.A. Interaktivní Databáze Epistemologie a Axiomů
+I.D.E.A.  
+Interaktivní Databáze Epistemologie a Axiomů
 
 Cílem tohoto projektu je vytvořit komplexní relační  <ins>databázi</ins> , která systematicky mapuje vývoj lidského  <ins>myšlení</ins> . V dnešní době přehlcené povrchními informacemi chci nabídnout strukturovaný  <ins>nástroj</ins>  pro skutečně hluboké  <ins>studium</ins> .
 
@@ -51,80 +52,6 @@ Nejvyšší oprávnění drží  <ins>administrátor</ins> , který ručí za fa
 
 # Rychlý start
 
-## 1. Vytvoření virtuálního prostředí
-
-```bash
-python3 -m venv .venv
-```
-
----
-
-## 2. Aktivace prostředí
-
-### macOS / Linux / Git Bash / WSL
-
-```bash
-source .venv/bin/activate
-```
-
-### Windows – PowerShell
-
-```bash
-.venv\Scripts\Activate.ps1
-```
-
-### Windows – Příkazový řádek (cmd)
-
-```bash
-.venv\Scripts\activate.bat
-```
-
-Pokud PowerShell hlásí chybu o spouštění skriptů, spusť jednorázově:
-
-```bash
-Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
-```
-
----
-
-## 3. Instalace závislostí
-
-Aktualizace pip (doporučeno):
-
-```bash
-python -m pip install --upgrade pip setuptools wheel
-```
-
-Instalace projektu:
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## 4. Spuštění aplikace
-
-### Django
-
-```bash
-python manage.py runserver
-```
-
-Aplikace bude dostupná typicky na:
-
-```
-http://127.0.0.1:8000
-```
-
-nebo
-
-```
-http://127.0.0.1:5000
-```
-
----
-
 ### Infrastruktura a lokální nasazení (macOS)
 
 **Postup pro spuštění:**
@@ -146,6 +73,18 @@ http://127.0.0.1:5000
    ```bash
    python3 manage.py runserver
    ```
+
+Aplikace bude dostupná typicky na:
+
+```
+http://127.0.0.1:8000
+```
+
+nebo
+
+```
+http://127.0.0.1:5000
+```
 
 ---
 
