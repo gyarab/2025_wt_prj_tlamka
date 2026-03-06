@@ -127,8 +127,6 @@ http://127.0.0.1:5000
 
 ### Infrastruktura a lokální nasazení (macOS)
 
-Pro zachování absolutní čistoty globálních systémových knihoven a exaktní izolace závislostí využívá architektura institutu I.D.E.A. dedikované virtuální prostředí. Tento racionální přístup eliminuje jakékoliv technologické konflikty.
-
 **Postup pro spuštění:**
 
 1. **Aktivace izolovaného prostředí:**
