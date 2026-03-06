@@ -125,6 +125,32 @@ http://127.0.0.1:5000
 
 ---
 
+### Infrastruktura a lokální nasazení (macOS)
+
+Pro zachování absolutní čistoty globálních systémových knihoven a exaktní izolace závislostí využívá architektura institutu I.D.E.A. dedikované virtuální prostředí. Tento racionální přístup eliminuje jakékoliv technologické konflikty.
+
+**Postup pro spuštění:**
+
+1. **Aktivace izolovaného prostředí:**
+   Otevřete terminál v kořenovém adresáři projektu a inicializujte prostředí příkazem:
+   ```bash
+   source venv/bin/activate
+   ```
+
+2. **Instalace nezbytných závislostí:**
+   *(Tento krok je vyžadován pouze při prvotním spuštění na novém stroji)*
+   ```bash
+   pip install django
+   ```
+
+3. **Iniciace lokálního serveru:**
+   Pro spuštění vývojového frameworku a napojení na lokální databázi zadejte:
+   ```bash
+   python3 manage.py runserver
+   ```
+
+---
+
 ## Licence
 
 Tento projekt podléhá přísné proprietární licenci. **Všechna práva jsou vyhrazena.**
