@@ -35,6 +35,13 @@ Aby se však z pasivního čtenáře stal aktivní účastník, je vyžadována 
 Nejvyšší oprávnění drží  <ins>administrátor</ins> , který ručí za faktickou správnost celého  <ins>lexikonu</ins> . Přes zabezpečené redakční  <ins>rozhraní</ins>  přidává nové  <ins>entity</ins> , spravuje relační  <ins>vazby</ins>  a moderuje uživatelský obsah. Po technologické stránce projekt plně využívá  <ins>framework</ins>  k zajištění stabilního chodu a pokročilé práce s  <ins>daty</ins> .
 
 ---
+---
+
+### Databázové schéma (E-R Diagram)
+
+![E-R Diagram](dokumentace/er_diagram_skica.jpg)
+
+
 ### Návrh – User Flow
 
 ![UserFlow](dokumentace/userFlow_idea.png)
