@@ -21,18 +21,18 @@ Gymnázium Arabská, Praha
 
 ## O projektu
 
-I.D.E.A.  
+I.D.E.A.
 Interaktivní Databáze Epistemologie a Axiomů
 
-Cílem tohoto projektu je vytvořit komplexní relační  <ins>databázi</ins> , která systematicky mapuje vývoj lidského  <ins>myšlení</ins> . V dnešní době přehlcené povrchními informacemi chci nabídnout strukturovaný  <ins>nástroj</ins>  pro skutečně hluboké  <ins>studium</ins> .
+Cílem tohoto projektu je vytvořit komplexní relační databázi, která systematicky mapuje vývoj lidského myšlení. V dnešní době přehlcené povrchními informacemi chci nabídnout strukturovaný nástroj pro skutečně hluboké studium.
 
-Základními stavebními kameny celé  <ins>aplikace</ins>  jsou jednotliví  <ins>myslitelé</ins> . Každý  <ins>autor</ins>  je v  <ins>systému</ins>  pevně ukotven a provázán se svými klíčovými  <ins>díly</ins> , historickou  <ins>epochou</ins>  a geografickým původem. Nejde však o pouhý strohý seznam jmen. Hlavní přidanou hodnotou je úzké propojení na konkrétní  <ins>koncepty</ins>  a myšlenkové  <ins>směry</ins>  (jako je například  <ins>stoicismus</ins>  či  <ins>existencialismus</ins> ). Celá  <ins>architektura</ins>  je dále kategorizována podle fundamentálních  <ins>disciplín</ins> , s primárním důrazem na  <ins>metafyziku</ins>  a  <ins>gnoseologii</ins> . To umožňuje přesně sledovat evoluci určitého problému napříč staletími a pochopit tak skryté souvislosti.
+Základními stavebními kameny celé aplikace jsou jednotliví <ins>myslitelé</ins>. Každý autor je v systému pevně ukotven a provázán se svými klíčovými <ins>díly</ins>, historickou <ins>epochou</ins> a geografickým původem. Nejde však o pouhý strohý seznam jmen. Hlavní přidanou hodnotou je úzké propojení na konkrétní <ins>myšlenky</ins>, koncepty a filozofické <ins>směry</ins> (jako je například stoicismus či existencialismus). Celá architektura je dále kategorizována podle fundamentálních disciplín, s primárním důrazem na metafyziku a gnoseologii. To umožňuje přesně sledovat evoluci určitého problému napříč staletími a pochopit tak skryté souvislosti.
 
-Z hlediska uživatelského přístupu je web rozdělen do tří úrovní. Běžný nepřihlášený  <ins>návštěvník</ins>  může volně procházet veřejný   <ins>katalog</ins> , filtrovat  <ins>záznamy</ins>  podle zadaných kritérií a číst si základní  <ins>definice</ins>  či  <ins>životopisy</ins> .
+Z hlediska uživatelského přístupu je web rozdělen do tří úrovní. Běžný nepřihlášený návštěvník může volně procházet veřejný katalog, filtrovat záznamy podle zadaných kritérií a číst si základní definice či životopisy.
 
-Aby se však z pasivního čtenáře stal aktivní účastník, je vyžadována  <ins>registrace</ins> . Přihlášený  <ins>uživatel</ins>  získává prostor pro hlubší interakci. Může k jednotlivým  <ins>tezím</ins>  přidávat vlastní  <ins>komentáře</ins> , reflektovat přečtené texty a především si ukládat stěžejní  <ins>citáty</ins>  do osobního výběru. Vzniká tak izolovaný prostor pro racionální utřídění vlastního  <ins>světonázoru</ins> .
+Aby se však z pasivního čtenáře stal aktivní účastník, je vyžadována registrace. Přihlášený <ins>uživatel</ins> získává prostor pro hlubší interakci. Může k jednotlivým tezím přidávat vlastní <ins>komentáře</ins>, reflektovat přečtené texty a především si ukládat stěžejní citáty do osobního výběru. Vzniká tak izolovaný prostor pro racionální utřídění vlastního světonázoru.
 
-Nejvyšší oprávnění drží  <ins>administrátor</ins> , který ručí za faktickou správnost celého  <ins>lexikonu</ins> . Přes zabezpečené redakční  <ins>rozhraní</ins>  přidává nové  <ins>entity</ins> , spravuje relační  <ins>vazby</ins>  a moderuje uživatelský obsah. Po technologické stránce projekt plně využívá  <ins>framework</ins>  k zajištění stabilního chodu a pokročilé práce s  <ins>daty</ins> .
+Nejvyšší oprávnění drží administrátor, který ručí za faktickou správnost celého lexikonu. Přes zabezpečené redakční rozhraní přidává nové entity, spravuje relační vazby a moderuje uživatelský obsah. Po technologické stránce projekt plně využívá framework k zajištění stabilního chodu a pokročilé práce s daty.
 
 ---
 ---
