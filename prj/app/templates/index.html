@@ -1,44 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<style>
-    /* Specifické styly pouze pro domovskou stránku */
-    .stats-container {
-        display: flex;
-        gap: 20px;
-        margin-top: 40px;
-    }
-    .stat-card {
-        border: 1px solid #ff6600;
-        padding: 30px;
-        flex: 1;
-        text-align: center;
-        background-color: #050505;
-        box-shadow: 0 0 15px rgba(255, 102, 0, 0.05);
-    }
-    .stat-number {
-        font-size: 4em;
-        font-weight: bold;
-        margin-bottom: 15px;
-        line-height: 1;
-    }
-</style>
-
-<h2>Vítejte v institutu</h2>
-<p>Tento systém slouží k exaktnímu mapování dějin lidského myšlení. Aktuální stav naší ontologie:</p>
+<h2>Stav ontologie</h2>
+<p>Tento systém slouží k exaktnímu mapování dějin lidského myšlení. Vstupujete do prostoru racionální reflexe a absolutních pravd.</p>
 
 <div class="stats-container">
     <div class="stat-card">
         <div class="stat-number">{{ pocet_myslitelu }}</div>
-        <div>Zaznamenaných myslitelů</div>
+        <div class="stat-label">Zaznamenaných myslitelů</div>
     </div>
     <div class="stat-card">
         <div class="stat-number">{{ pocet_smeru }}</div>
-        <div>Filozofických směrů</div>
+        <div class="stat-label">Filozofických směrů</div>
     </div>
     <div class="stat-card">
         <div class="stat-number">{{ pocet_myslenek }}</div>
-        <div>Uchovaných axiomů</div>
+        <div class="stat-label">Uchovaných axiomů</div>
     </div>
 </div>
 {% endblock %}

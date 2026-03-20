@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .katalog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+    }
+    .kniha-karta {
+        background: var(--bg-karta);
+        border: 1px solid var(--border-jemny);
+        padding: 30px;
+        border-left: 5px solid var(--barva-primarni);
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+    .kniha-karta:hover {
+        transform: scale(1.03);
+        background: #111;
+        border-color: var(--barva-primarni);
+    }
+    .kniha-nazev {
+        font-family: var(--font-nadpis);
+        font-size: 1.5rem;
+        color: var(--text-hlavni);
+        margin-bottom: 10px;
+        display: block;
+    }
+    .kniha-autor {
+        color: var(--barva-primarni);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.85rem;
+    }
+    .kniha-rok {
+        color: var(--text-tlumeny);
+        font-size: 0.8rem;
+        margin-left: 10px;
+    }
+</style>
+
+<h2>Katalog děl</h2>
+<p>Kompletní soupis fundamentálních textů, které formovaly lidské vědomí.</p>
+
+<div class="katalog-grid">
+    {% for dilo in dila %}
+    <a href="{% url 'myslitel_detail' dilo.autor.id %}" class="kniha-karta">
+        <span class="kniha-nazev">{{ dilo.nazev }}</span>
+        <span class="kniha-autor">{{ dilo.autor.jmeno }}</span>
+        <span class="kniha-rok">{{ dilo.rok_vydani|default:"" }}</span>
+    </a>
+    {% empty %}
+    <p>Zatím nebyla zaznamenána žádná díla.</p>
+    {% endfor %}
+</div>
+{% endblock %}

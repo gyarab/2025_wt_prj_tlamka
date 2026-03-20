@@ -10,6 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
+import os
+from pathlib import Path
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -115,8 +118,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
+# --- STATICKÉ SOUBORY ---
 STATIC_URL = 'static/'
 
+# Využíváme moderní objektový přístup (objekt BASE_DIR) pro definici cesty
 STATICFILES_DIRS = [
-    BASE_DIR / 'prj/zdroje',
+    BASE_DIR / "static",
 ]
+
+# --- MEDIÁLNÍ SOUBORY (Portréty a uživatelská data) ---
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'

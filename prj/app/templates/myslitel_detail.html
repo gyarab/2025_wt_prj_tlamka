@@ -1,0 +1,207 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    /* KONTEJNER PROFILU (Rozvržení a'la ČSFD) */
+    .profil-grid {
+        display: grid;
+        grid-template-columns: 350px 1fr;
+        gap: 50px;
+        align-items: start;
+        margin-bottom: 60px;
+    }
+
+    /* LEVÝ SLOUPEC: Portrét */
+    .profil-vizual {
+        background: var(--bg-karta);
+        border: 1px solid var(--border-jemny);
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        position: relative;
+    }
+
+    .profil-obrazek {
+        width: 100%;
+        display: block;
+        filter: grayscale(80%) contrast(110%);
+        border-bottom: 3px solid var(--barva-primarni);
+    }
+
+    .profil-inicialy {
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-nadpis);
+        font-size: 8rem;
+        color: var(--barva-primarni);
+        text-shadow: 0 0 40px var(--barva-primarni-zare);
+        background: #030303;
+        border-bottom: 3px solid var(--barva-primarni);
+    }
+
+    /* PRAVÝ SLOUPEC: Fundamentální data */
+    .profil-data h2 {
+        font-size: 3.5rem;
+        margin-bottom: 5px;
+        line-height: 1.1;
+    }
+
+    .profil-roky {
+        font-size: 1.2rem;
+        color: var(--text-tlumeny);
+        margin-bottom: 30px;
+        letter-spacing: 2px;
+    }
+
+    .profil-stitky {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    .stitek {
+        background: var(--bg-karta);
+        color: var(--text-hlavni);
+        padding: 8px 15px;
+        border: 1px solid var(--barva-primarni);
+        border-radius: 2px;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .profil-zivotopis {
+        font-size: 1.15rem;
+        line-height: 1.8;
+        color: #cccccc;
+        text-align: justify;
+        border-left: 2px solid var(--border-jemny);
+        padding-left: 20px;
+    }
+
+    /* SPODNÍ SEKCE: Axiomy a Díla */
+    .sekce-nadpis {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border-jemny);
+    }
+
+    .myslenky-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 60px;
+    }
+
+    .axiom-karta {
+        background: var(--bg-karta);
+        padding: 30px 40px;
+        border-left: 4px solid var(--barva-primarni);
+        font-size: 1.3rem;
+        font-style: italic;
+        position: relative;
+    }
+
+    .axiom-karta::before {
+        content: '"';
+        position: absolute;
+        top: 10px;
+        left: 15px;
+        font-size: 4rem;
+        color: var(--border-jemny);
+        font-family: var(--font-nadpis);
+        line-height: 1;
+    }
+
+    .axiom-zdroj {
+        display: block;
+        margin-top: 15px;
+        font-size: 0.9rem;
+        color: var(--barva-primarni);
+        font-style: normal;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .dila-seznam {
+        list-style: none;
+    }
+
+    .dilo-polozka {
+        padding: 15px 0;
+        border-bottom: 1px solid var(--border-jemny);
+    }
+
+    .dilo-nazev {
+        font-family: var(--font-nadpis);
+        font-size: 1.3rem;
+        color: var(--text-hlavni);
+    }
+
+    .dilo-rok {
+        color: var(--barva-primarni);
+        margin-left: 10px;
+        font-size: 0.9rem;
+    }
+</style>
+
+<div class="profil-grid">
+    <div class="profil-vizual">
+        {% if myslitel.portret %}
+            <img src="{{ myslitel.portret.url }}" alt="{{ myslitel.jmeno }}" class="profil-obrazek">
+        {% else %}
+            <div class="profil-inicialy">{{ myslitel.ziskej_inicialy }}</div>
+        {% endif %}
+    </div>
+
+    <div class="profil-data">
+        <h2>{{ myslitel.jmeno }}</h2>
+        <div class="profil-roky">{{ myslitel.roky_zivota|default:"Neznámé období" }}</div>
+        
+        <div class="profil-stitky">
+            {% if myslitel.epocha %}
+                <span class="stitek">{{ myslitel.epocha.nazev }}</span>
+            {% endif %}
+            {% for smer in myslitel.smery.all %}
+                <span class="stitek">{{ smer.nazev }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="profil-zivotopis">
+            {{ myslitel.zivotopis|linebreaks }}
+        </div>
+    </div>
+</div>
+
+{% if myslitel.myslenky.all %}
+    <h3 class="sekce-nadpis">Fundamentální Axiomy</h3>
+    <div class="myslenky-grid">
+        {% for myslenka in myslitel.myslenky.all %}
+            <div class="axiom-karta">
+                {{ myslenka.text }}
+                {% if myslenka.dilo %}
+                    <span class="axiom-zdroj">— {{ myslenka.dilo.nazev }}</span>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% if myslitel.dila.all %}
+    <h3 class="sekce-nadpis">Klíčová díla</h3>
+    <ul class="dila-seznam">
+        {% for dilo in myslitel.dila.all %}
+            <li class="dilo-polozka">
+                <span class="dilo-nazev">{{ dilo.nazev }}</span>
+                {% if dilo.rok_vydani %}<span class="dilo-rok">({{ dilo.rok_vydani }})</span>{% endif %}
+                {% if dilo.popis %}<p style="color: var(--text-tlumeny); margin-top: 5px;">{{ dilo.popis }}</p>{% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% endblock %}

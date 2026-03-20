@@ -1,0 +1,141 @@
+/* --- FUNDAMENTÁLNÍ PROMĚNNÉ --- */
+:root {
+    --bg-absolutni: #000000;
+    --bg-karta: #0a0a0a;
+    --barva-primarni: #ff6600;
+    --barva-primarni-zare: rgba(255, 102, 0, 0.15);
+    --text-hlavni: #e0e0e0;
+    --text-tlumeny: #8a8a8a;
+    --border-jemny: #331400;
+    
+    /* Typografie: Cinzel pro majestátní nadpisy, Inter pro racionální text */
+    --font-nadpis: 'Cinzel', serif;
+    --font-text: 'Inter', sans-serif;
+}
+
+/* --- RESET A ZÁKLAD --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-absolutni);
+    color: var(--text-hlavni);
+    font-family: var(--font-text);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- TYPOGRAFIE --- */
+h1, h2, h3, h4 {
+    font-family: var(--font-nadpis);
+    color: var(--barva-primarni);
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+/* --- HLAVIČKA A NAVIGACE --- */
+header {
+    background-color: var(--bg-absolutni);
+    border-bottom: 1px solid var(--barva-primarni);
+    padding: 25px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 20px var(--barva-primarni-zare);
+}
+
+header h1 {
+    font-size: 2rem;
+    letter-spacing: 6px;
+    text-shadow: 0 0 10px var(--barva-primarni-zare);
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: var(--text-hlavni);
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--barva-primarni);
+    text-shadow: 0 0 8px var(--barva-primarni-zare);
+}
+
+/* --- HLAVNÍ OBSAH (AGORA) --- */
+main {
+    flex: 1;
+    padding: 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+main p {
+    font-size: 1.1rem;
+    color: var(--text-tlumeny);
+    max-width: 800px;
+    margin-bottom: 40px;
+}
+
+/* --- KOMPONENTY: KARTY (Obsidiánové desky) --- */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.stat-card {
+    background-color: var(--bg-karta);
+    border: 1px solid var(--border-jemny);
+    padding: 40px 30px;
+    text-align: center;
+    border-radius: 4px;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--barva-primarni);
+    box-shadow: 0 10px 30px var(--barva-primarni-zare);
+}
+
+.stat-number {
+    font-family: var(--font-nadpis);
+    font-size: 4.5rem;
+    color: var(--barva-primarni);
+    line-height: 1;
+    margin-bottom: 15px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-tlumeny);
+}
+
+/* --- PATIČKA --- */
+footer {
+    border-top: 1px solid var(--border-jemny);
+    text-align: center;
+    padding: 30px;
+    font-size: 0.8rem;
+    color: var(--text-tlumeny);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}

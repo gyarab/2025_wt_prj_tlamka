@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .agora-header {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+    .agora-header h2 {
+        font-size: 3rem;
+        letter-spacing: 4px;
+        margin-bottom: 10px;
+    }
+    
+    .panteon-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 40px;
+    }
+    
+    /* ARCHITEKTURA KARTY */
+    .myslitel-karta {
+        background: var(--bg-karta);
+        border: 1px solid var(--border-jemny);
+        border-radius: 4px;
+        overflow: hidden;
+        transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .myslitel-karta:hover {
+        transform: translateY(-8px);
+        border-color: var(--barva-primarni);
+        box-shadow: 0 15px 40px var(--barva-primarni-zare);
+    }
+    
+    /* VIZUÁLNÍ ZÓNA (Fotka nebo iniciály) */
+    .vizual-kontejner {
+        height: 320px;
+        background-color: #030303;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid var(--border-jemny);
+        overflow: hidden;
+    }
+    
+    .vizual-kontejner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* Černobílý, vysoce kontrastní filtr pro sjednocení designu */
+        filter: grayscale(100%) contrast(110%);
+        transition: filter 0.5s ease, transform 0.5s ease;
+    }
+    
+    .myslitel-karta:hover .vizual-kontejner img {
+        /* Při najetí se mírně vrátí barva a fotka se neznatelně přiblíží */
+        filter: grayscale(30%) contrast(105%);
+        transform: scale(1.05);
+    }
+    
+    .inicialy-zastupce {
+        font-family: var(--font-nadpis);
+        font-size: 6rem;
+        color: var(--barva-primarni);
+        text-shadow: 0 0 30px var(--barva-primarni-zare);
+        letter-spacing: 5px;
+    }
+    
+    /* DATOVÁ ZÓNA */
+    .data-kontejner {
+        padding: 30px 20px;
+        text-align: center;
+    }
+    
+    .data-kontejner h3 {
+        font-size: 1.6rem;
+        margin-bottom: 5px;
+        color: var(--text-hlavni);
+        transition: color 0.3s;
+    }
+    
+    .myslitel-karta:hover .data-kontejner h3 {
+        color: var(--barva-primarni);
+    }
+    
+    .roky {
+        font-family: var(--font-text);
+        color: var(--text-tlumeny);
+        font-size: 0.95rem;
+        letter-spacing: 2px;
+    }
+</style>
+
+<div class="agora-header">
+    <h2>Síň předků</h2>
+    <p>Zde spočívají tvůrci absolutních myšlenek. Vstupte do jejich odkazu.</p>
+</div>
+
+<div class="panteon-grid">
+    {% for myslitel in myslitele %}
+        <a href="{% url 'myslitel_detail' myslitel.id %}" class="myslitel-karta">
+            <div class="vizual-kontejner">
+                {% if myslitel.portret %}
+                    <img src="{{ myslitel.portret.url }}" alt="{{ myslitel.jmeno }}">
+                {% else %}
+                    <div class="inicialy-zastupce">{{ myslitel.ziskej_inicialy }}</div>
+                {% endif %}
+            </div>
+            <div class="data-kontejner">
+                <h3>{{ myslitel.jmeno }}</h3>
+                <div class="roky">{{ myslitel.roky_zivota|default:"Neznámé období" }}</div>
+            </div>
+        </a>
+    {% empty %}
+        <p style="text-align:center; width:100%; color: var(--text-tlumeny);">Panteon je zatím prázdný.</p>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .proud-container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    .proud-karta {
+        background: var(--bg-karta);
+        border: 1px solid var(--border-jemny);
+        padding: 50px;
+        margin-bottom: 40px;
+        position: relative;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .proud-text {
+        font-size: 1.6rem;
+        font-style: italic;
+        line-height: 1.6;
+        color: var(--text-hlavni);
+        margin-bottom: 25px;
+    }
+    .proud-meta {
+        text-align: right;
+        border-top: 1px solid var(--border-jemny);
+        padding-top: 15px;
+    }
+    .proud-autor {
+        font-family: var(--font-nadpis);
+        color: var(--barva-primarni);
+        font-size: 1.2rem;
+        text-decoration: none;
+    }
+    .proud-dilo {
+        display: block;
+        color: var(--text-tlumeny);
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        margin-top: 5px;
+    }
+</style>
+
+<div class="proud-container">
+    <h2>Proud vědomí</h2>
+    <p>Axiomatické základy nové existence. Interpretace reality skrze největší myslitele.</p>
+    
+    {% for axiom in axiomy %}
+    <div class="proud-karta">
+        <div class="proud-text">„{{ axiom.text }}“</div>
+        <div class="proud-meta">
+            <a href="{% url 'myslitel_detail' axiom.autor.id %}" class="proud-autor">{{ axiom.autor.jmeno }}</a>
+            {% if axiom.dilo %}
+            <span class="proud-dilo">{{ axiom.dilo.nazev }}</span>
+            {% endif %}
+        </div>
+    </div>
+    {% empty %}
+    <p>Ticho. Žádné axiomy zatím nebyly vyřčeny.</p>
+    {% endfor %}
+</div>
+{% endblock %}
