@@ -4,21 +4,42 @@
 <style>
     .agora-header {
         text-align: center;
-        margin-bottom: 60px;
-    }
-    .agora-header h2 {
-        font-size: 3rem;
-        letter-spacing: 4px;
-        margin-bottom: 10px;
+        margin-bottom: 40px;
     }
     
+    /* FILTRAČNÍ LIŠTA */
+    .filtry-epoch {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 60px;
+        padding: 20px;
+        border-top: 1px solid var(--border-jemny);
+        border-bottom: 1px solid var(--border-jemny);
+    }
+    
+    .filtr-odkaz {
+        color: var(--text-tlumeny);
+        text-decoration: none;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 5px 10px;
+        transition: all 0.3s;
+    }
+    
+    .filtr-odkaz:hover, .filtr-odkaz.aktivni {
+        color: var(--barva-primarni);
+        border-bottom: 1px solid var(--barva-primarni);
+    }
+
     .panteon-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 40px;
     }
     
-    /* ARCHITEKTURA KARTY */
     .myslitel-karta {
         background: var(--bg-karta);
         border: 1px solid var(--border-jemny);
@@ -36,7 +57,6 @@
         box-shadow: 0 15px 40px var(--barva-primarni-zare);
     }
     
-    /* VIZUÁLNÍ ZÓNA (Fotka nebo iniciály) */
     .vizual-kontejner {
         height: 320px;
         background-color: #030303;
@@ -48,16 +68,12 @@
     }
     
     .vizual-kontejner img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        /* Černobílý, vysoce kontrastní filtr pro sjednocení designu */
+        width: 100%; height: 100%; object-fit: cover;
         filter: grayscale(100%) contrast(110%);
-        transition: filter 0.5s ease, transform 0.5s ease;
+        transition: 0.5s ease;
     }
     
     .myslitel-karta:hover .vizual-kontejner img {
-        /* Při najetí se mírně vrátí barva a fotka se neznatelně přiblíží */
         filter: grayscale(30%) contrast(105%);
         transform: scale(1.05);
     }
@@ -67,37 +83,29 @@
         font-size: 6rem;
         color: var(--barva-primarni);
         text-shadow: 0 0 30px var(--barva-primarni-zare);
-        letter-spacing: 5px;
     }
     
-    /* DATOVÁ ZÓNA */
-    .data-kontejner {
-        padding: 30px 20px;
-        text-align: center;
-    }
-    
-    .data-kontejner h3 {
-        font-size: 1.6rem;
-        margin-bottom: 5px;
-        color: var(--text-hlavni);
-        transition: color 0.3s;
-    }
-    
-    .myslitel-karta:hover .data-kontejner h3 {
-        color: var(--barva-primarni);
-    }
-    
-    .roky {
-        font-family: var(--font-text);
-        color: var(--text-tlumeny);
-        font-size: 0.95rem;
-        letter-spacing: 2px;
-    }
+    .data-kontejner { padding: 30px 20px; text-align: center; }
+    .data-kontejner h3 { font-size: 1.6rem; color: var(--text-hlavni); margin-bottom: 5px; }
+    .roky { color: var(--text-tlumeny); font-size: 0.95rem; letter-spacing: 2px; }
 </style>
 
 <div class="agora-header">
     <h2>Síň předků</h2>
-    <p>Zde spočívají tvůrci absolutních myšlenek. Vstupte do jejich odkazu.</p>
+    {% if zvolena_epocha %}
+        <p>Epocha: <span style="color: var(--barva-primarni)">{{ zvolena_epocha.nazev }}</span></p>
+    {% else %}
+        <p>Všichni tvůrci absolutních myšlenek v ontologické síti.</p>
+    {% endif %}
+</div>
+
+<div class="filtry-epoch">
+    <a href="{% url 'sin_predku' %}" class="filtr-odkaz {% if not zvolena_epocha %}aktivni{% endif %}">Všechny epochy</a>
+    {% for epocha in epochy %}
+        <a href="?epocha={{ epocha.id }}" class="filtr-odkaz {% if zvolena_epocha.id == epocha.id %}aktivni{% endif %}">
+            {{ epocha.nazev }}
+        </a>
+    {% endfor %}
 </div>
 
 <div class="panteon-grid">
@@ -116,7 +124,7 @@
             </div>
         </a>
     {% empty %}
-        <p style="text-align:center; width:100%; color: var(--text-tlumeny);">Panteon je zatím prázdný.</p>
+    <p style="text-align:center; width:100%; color: var(--text-tlumeny);">V této epochě zatím žádný myslitel nepovstal.</p>
     {% endfor %}
 </div>
 {% endblock %}

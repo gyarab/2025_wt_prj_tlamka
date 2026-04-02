@@ -1,0 +1,201 @@
+[
+  {
+    "model": "app.epocha",
+    "pk": 1,
+    "fields": {
+      "nazev": "Antická filosofie",
+      "obdobi": "6. stol. př. n. l. – 6. stol. n. l.",
+      "charakteristika": "Zrod logu, hledání podstaty bytí (arché) a ideálního státu."
+    }
+  },
+  {
+    "model": "app.epocha",
+    "pk": 2,
+    "fields": {
+      "nazev": "Renesanční filosofie",
+      "obdobi": "14. – 16. století",
+      "charakteristika": "Návrat k člověku, sekularizace moci a rozvoj politického realismu."
+    }
+  },
+  {
+    "model": "app.epocha",
+    "pk": 3,
+    "fields": {
+      "nazev": "Klasická německá filosofie",
+      "obdobi": "18. – 19. století",
+      "charakteristika": "Vrchol metafyzických systémů, zkoumání absolutního ducha a hranic rozumu."
+    }
+  },
+  {
+    "model": "app.epocha",
+    "pk": 4,
+    "fields": {
+      "nazev": "Existencialismus a Moderna",
+      "obdobi": "19. – 20. století",
+      "charakteristika": "Krize subjektu, smrt Boha a hledání smyslu v absurdním vesmíru."
+    }
+  },
+  {
+    "model": "app.smer",
+    "pk": 1,
+    "fields": { "nazev": "Stoicismus", "definice": "Sebeovládání a soulad s vesmírným řádem." }
+  },
+  {
+    "model": "app.smer",
+    "pk": 2,
+    "fields": { "nazev": "Idealismus", "definice": "Prvenství idey a ducha nad materiální realitou." }
+  },
+  {
+    "model": "app.smer",
+    "pk": 3,
+    "fields": { "nazev": "Politický realismus", "definice": "Studium moci a státu bez morálních iluzí." }
+  },
+  {
+    "model": "app.smer",
+    "pk": 4,
+    "fields": { "nazev": "Pesimismus", "definice": "Nahlížení světa jako místa utrpení ovládaného slepou vůlí." }
+  },
+  {
+    "model": "app.myslitel",
+    "pk": 1,
+    "fields": {
+      "jmeno": "Sókratés",
+      "roky_zivota": "469–399 př. n. l.",
+      "zivotopis": "Postava, která změnila směr filosofie od zkoumání přírody k člověku. Sókratés nepsal, ale prováděl maieutiku – umění porodit pravdu skrze dialog. Jeho gnoseologický postoj vychází z uznání vlastní nevědomosti jako základu skutečné moudrosti. Byl odsouzen k smrti za kazení mládeže a zavádění nových bohů, přičemž do poslední chvíle odmítal zradit své svědomí.",
+      "epocha": 1,
+      "smery": []
+    }
+  },
+  {
+    "model": "app.myslitel",
+    "pk": 2,
+    "fields": {
+      "jmeno": "Platón",
+      "roky_zivota": "427–347 př. n. l.",
+      "zivotopis": "Geniální žák Sókratův a zakladatel Akademie. Definoval západní metafyziku svou teorií ideí, kde viditelný svět je pouze stínem světa dokonalých forem. V Ústavě navrhl striktní společenskou hierarchii ovládanou králi-filosofy, což dodnes fascinuje architekty ideálních společností.",
+      "epocha": 1,
+      "smery": [2]
+    }
+  },
+  {
+    "model": "app.myslitel",
+    "pk": 3,
+    "fields": {
+      "jmeno": "Aristotelés",
+      "roky_zivota": "384–322 př. n. l.",
+      "zivotopis": "Platónův žák, který však 'sestoupil z nebe na zem'. Položil základy logiky, biologie a etiky. Jeho metafyzika se soustředí na látku a formu. Věřil, že pravda se nachází v empirickém zkoumání světa, čímž položil základy pro moderní vědu. Vychoval Alexandra Velikého a vtiskl helénismu jeho racionální tvář.",
+      "epocha": 1,
+      "smery": []
+    }
+  },
+  {
+    "model": "app.myslitel",
+    "pk": 4,
+    "fields": {
+      "jmeno": "Marcus Aurelius",
+      "roky_zivota": "121–180 n. l.",
+      "zivotopis": "Poslední z pěti dobrých císařů Říma. I přes neustálé války na hranicích impéria praktikoval hluboký stoicismus. Jeho deník 'Hovory k sobě' je manifestem vnitřní svobody a kázně, kde člověk zůstává neotřesen uprostřed chaosu, věren svému rozumu a službě celku.",
+      "epocha": 1,
+      "smery": [1]
+    }
+  },
+  {
+    "model": "app.myslitel",
+    "pk": 5,
+    "fields": {
+      "jmeno": "Niccolò Machiavelli",
+      "roky_zivota": "1469–1527",
+      "zivotopis": "Florentský diplomat, který zbavil politiku moralizování. Ve svém díle Vladař popsal mechanismy moci tak, jak skutečně fungují, nikoliv jak by měly fungovat. Je otcem politického realismu a pragmatismu, který věří, že stabilitu státu nelze udržet pouze dobrotou, ale i silou a lsti.",
+      "epocha": 2,
+      "smery": [3]
+    }
+  },
+  {
+    "model": "app.myslitel",
+    "pk": 6,
+    "fields": {
+      "jmeno": "Arthur Schopenhauer",
+      "roky_zivota": "1788–1860",
+      "zivotopis": "Osamělý myslitel, který identifikoval podstatu reality jako 'Vůli' – slepý, nenasytný pud, který způsobuje nekonečné utrpení. Jako první propojil západní filosofii s východní moudrostí (upanišady). Jeho pesimismus připravil půdu pro existencialismus a hluboce ovlivnil Nietzscheho.",
+      "epocha": 3,
+      "smery": [4]
+    }
+  },
+  {
+    "model": "app.myslitel",
+    "pk": 7,
+    "fields": {
+      "jmeno": "Søren Kierkegaard",
+      "roky_zivota": "1813–1855",
+      "zivotopis": "Dánský filosof, otec existencialismu. Zaměřil se na subjektivitu jednotlivce stojícího tváří v tvář Bohu a nicotě. Zkoumal úzkost jako závrať ze svobody a nutnost učinit 'skok víry'. Kritizoval davovost a prázdnotu oficiální církve.",
+      "epocha": 4,
+      "smery": []
+    }
+  },
+  {
+    "model": "app.myslitel",
+    "pk": 8,
+    "fields": {
+      "jmeno": "Friedrich Nietzsche",
+      "roky_zivota": "1844–1900",
+      "zivotopis": "Provokatér a vizionář, který vyhlásil 'smrt Boha'. Jeho filosofie je útokem na otrockou morálku a hledáním Nadčlověka, který si tvoří vlastní hodnoty. Skrze koncepty vůle k moci a věčného návratu téhož se pokusil o totální přehodnocení všech hodnot a osvobození lidského ducha z pout tradice.",
+      "epocha": 4,
+      "smery": []
+    }
+  },
+  {
+    "model": "app.dilo",
+    "pk": 1,
+    "fields": { "nazev": "Ústava (Politeia)", "rok_vydani": "375 př. n. l.", "popis": "Definice spravedlnosti a teorie králů-filosofů.", "autor": 2 }
+  },
+  {
+    "model": "app.dilo",
+    "pk": 2,
+    "fields": { "nazev": "Metafyzika", "rok_vydani": "4. stol. př. n. l.", "popis": "Zkoumání jsoucna jako jsoucna a prvních příčin.", "autor": 3 }
+  },
+  {
+    "model": "app.dilo",
+    "pk": 3,
+    "fields": { "nazev": "Vladař", "rok_vydani": "1513", "popis": "Manuál pro získání a udržení politické moci.", "autor": 5 }
+  },
+  {
+    "model": "app.dilo",
+    "pk": 4,
+    "fields": { "nazev": "Svět jako vůle a představa", "rok_vydani": "1818", "popis": "Základní pesimistický traktát o podstatě reality.", "autor": 6 }
+  },
+  {
+    "model": "app.dilo",
+    "pk": 5,
+    "fields": { "nazev": "Tak pravil Zarathustra", "rok_vydani": "1883", "popis": "Evangelium pro nadčlověka a překonání dosavadního lidství.", "autor": 8 }
+  },
+  {
+    "model": "app.myslenka",
+    "pk": 1,
+    "fields": { "text": "Vím, že nic nevím.", "autor": 1 }
+  },
+  {
+    "model": "app.myslenka",
+    "pk": 2,
+    "fields": { "text": "Platón je můj přítel, ale větším přítelem je pravda.", "autor": 3 }
+  },
+  {
+    "model": "app.myslenka",
+    "pk": 3,
+    "fields": { "text": "Lepší být obávaný než milovaný, není-li možné být obojím.", "autor": 5, "dilo": 3 }
+  },
+  {
+    "model": "app.myslenka",
+    "pk": 4,
+    "fields": { "text": "Člověk může dělat, co chce, ale nemůže chtít, co chce.", "autor": 6, "dilo": 4 }
+  },
+  {
+    "model": "app.myslenka",
+    "pk": 5,
+    "fields": { "text": "Subjektivita je pravda.", "autor": 7 }
+  },
+  {
+    "model": "app.myslenka",
+    "pk": 6,
+    "fields": { "text": "Bůh je mrtev! Bůh zůstane mrtev! A my jsme ho zabili!", "autor": 8, "dilo": 5 }
+  }
+]

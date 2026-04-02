@@ -11,21 +11,46 @@ def index(request):
     })
 
 def sin_predku(request):
-    """Výpis všech myslitelů (Síň předků)."""
-    return render(request, 'myslitele.html', {'myslitele': Myslitel.objects.all()})
+    """Výpis myslitelů s možností filtrace podle epochy."""
+    epocha_id = request.GET.get('epocha')
+    epochy = Epocha.objects.all()
+    
+    if epocha_id:
+        myslitele = Myslitel.objects.filter(epocha_id=epocha_id)
+        zvolena_epocha = get_object_or_404(Epocha, id=epocha_id)
+    else:
+        myslitele = Myslitel.objects.all()
+        zvolena_epocha = None
+        
+    return render(request, 'myslitele.html', {
+        'myslitele': myslitele,
+        'epochy': epochy,
+        'zvolena_epocha': zvolena_epocha
+    })
 
 def myslitel_detail(request, id):
-    """Detailní profil konkrétního myslitele."""
+    """Detailní profil myslitele."""
     myslitel = get_object_or_404(Myslitel, id=id)
     return render(request, 'myslitel_detail.html', {'myslitel': myslitel})
 
 def dila_seznam(request):
-    """Katalog všech děl v systému."""
+    """Katalog děl."""
     dila = Dilo.objects.all().select_related('autor').order_by('nazev')
     return render(request, 'dila.html', {'dila': dila})
 
 def proud_vedomi(request):
-    """Proud axiomů s náhodným řazením (order_by('?'))."""
-    # Náhodné řazení zajistí, že Proud vědomí bude při každém načtení jiný
-    axiomy = Myslenka.objects.all().select_related('autor', 'dilo').order_by('?')
-    return render(request, 'proud_vedomi.html', {'axiomy': axiomy})
+    """Proud axiomů s integrovaným vyhledáváním."""
+    dotaz = request.GET.get('q')
+    
+    if dotaz:
+        # Vyhledává v textu myšlenky i ve jméně autora (case-insensitive)
+        axiomy = Myslenka.objects.filter(
+            text__icontains=dotaz
+        ).select_related('autor', 'dilo').order_by('?')
+    else:
+        axiomy = Myslenka.objects.all().select_related('autor', 'dilo').order_by('?')
+        
+    return render(request, 'proud_vedomi.html', {
+        'axiomy': axiomy,
+        'dotaz': dotaz
+    })

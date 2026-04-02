@@ -1,0 +1,163 @@
+[
+  {
+    "model": "app.epocha",
+    "pk": 1,
+    "fields": {
+      "nazev": "Antická filosofie",
+      "obdobi": "6. stol. př. n. l. – 6. stol. n. l.",
+      "charakteristika": "Zrod západní racionality, hledání arché a ideálního bytí."
+    }
+  },
+  {
+    "model": "app.epocha",
+    "pk": 2,
+    "fields": {
+      "nazev": "Novověký racionalismus",
+      "obdobi": "17. – 18. století",
+      "charakteristika": "Důraz na lidský rozum jako primární zdroj poznání reality."
+    }
+  },
+  {
+    "model": "app.epocha",
+    "pk": 3,
+    "fields": {
+      "nazev": "Německý klasický idealismus",
+      "obdobi": "18. – 19. století",
+      "charakteristika": "Vrchol metafyzického myšlení zkoumající absolutní vědomí a subjektivitu."
+    }
+  },
+  {
+    "model": "app.smer",
+    "pk": 1,
+    "fields": {
+      "nazev": "Stoicismus",
+      "definice": "Etický a metafyzický systém hlásající život v souladu s logem vesmíru."
+    }
+  },
+  {
+    "model": "app.smer",
+    "pk": 2,
+    "fields": {
+      "nazev": "Perspektivismus",
+      "definice": "Gnoseologický postoj popírající absolutní pravdu; existují pouze interpretace z různých perspektiv."
+    }
+  },
+  {
+    "model": "app.smer",
+    "pk": 3,
+    "fields": {
+      "nazev": "Existencialismus",
+      "definice": "Filosofie zaměřená na úzkost, svobodu a tvorbu smyslu v absurdním světě."
+    }
+  },
+  {
+    "model": "app.myslitel",
+    "pk": 1,
+    "fields": {
+      "jmeno": "Herakleitos z Efesu",
+      "roky_zivota": "cca 535–475 př. n. l.",
+      "zivotopis": "Temný filosof změny. První, kdo definoval Logos jako zákonitost světa.",
+      "epocha": 1,
+      "smery": []
+    }
+  },
+  {
+    "model": "app.myslitel",
+    "pk": 2,
+    "fields": {
+      "jmeno": "Marcus Aurelius",
+      "roky_zivota": "121–180 n. l.",
+      "zivotopis": "Římský císař a filosof, který praktikoval stoicismus uprostřed válečných tažení.",
+      "epocha": 1,
+      "smery": [1]
+    }
+  },
+  {
+    "model": "app.myslitel",
+    "pk": 3,
+    "fields": {
+      "jmeno": "Immanuel Kant",
+      "roky_zivota": "1724–1804",
+      "zivotopis": "Autor kopernikánského obratu ve filosofii. Zkoumal hranice poznání a kategorický imperativ.",
+      "epocha": 3,
+      "smery": []
+    }
+  },
+  {
+    "model": "app.myslitel",
+    "pk": 4,
+    "fields": {
+      "jmeno": "Friedrich Nietzsche",
+      "roky_zivota": "1844–1900",
+      "zivotopis": "Filosof kladiva. Ohlašovatel nadčlověka a věčného návratu téhož.",
+      "epocha": 3,
+      "smery": [2, 3]
+    }
+  },
+  {
+    "model": "app.dilo",
+    "pk": 1,
+    "fields": {
+      "nazev": "Hovory k sobě",
+      "rok_vydani": "cca 175 n. l.",
+      "popis": "Deník císaře reflektující stoickou disciplínu a pomíjivost života.",
+      "autor": 2
+    }
+  },
+  {
+    "model": "app.dilo",
+    "pk": 2,
+    "fields": {
+      "nazev": "Kritika čistého rozumu",
+      "rok_vydani": "1781",
+      "popis": "Základní gnoseologické dílo zkoumající apriorní formy poznání.",
+      "autor": 3
+    }
+  },
+  {
+    "model": "app.dilo",
+    "pk": 3,
+    "fields": {
+      "nazev": "Vůle k moci",
+      "rok_vydani": "1901 (posmrtně)",
+      "popis": "Fragmenty Nietzscheho pozdní filosofie o podstatě bytí.",
+      "autor": 4
+    }
+  },
+  {
+    "model": "app.myslenka",
+    "pk": 1,
+    "fields": {
+      "text": "Panta rhei – vše plyne.",
+      "autor": 1,
+      "dilo": null
+    }
+  },
+  {
+    "model": "app.myslenka",
+    "pk": 2,
+    "fields": {
+      "text": "Smrt se na nás všechny usmívá. Člověku nezbývá než úsměv opětovat.",
+      "autor": 2,
+      "dilo": 1
+    }
+  },
+  {
+    "model": "app.myslenka",
+    "pk": 3,
+    "fields": {
+      "text": "Jednej tak, aby se maxima tvého jednání mohla stát obecným zákonem.",
+      "autor": 3,
+      "dilo": null
+    }
+  },
+  {
+    "model": "app.myslenka",
+    "pk": 4,
+    "fields": {
+      "text": "Co mě nezabije, to mě posílí.",
+      "autor": 4,
+      "dilo": null
+    }
+  }
+]

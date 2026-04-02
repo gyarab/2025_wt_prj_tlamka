@@ -21,8 +21,6 @@
             --text-hlavni: #e0e0e0;
             --text-tlumeny: #8a8a8a;
             --border-jemny: #331400;
-            
-            /* Písma zachovávají monumentální ráz, ale neničí českou diakritiku */
             --font-nadpis: 'Playfair Display', serif;
             --font-text: 'Montserrat', sans-serif;
         }
@@ -47,7 +45,6 @@
             letter-spacing: 2px;
         }
 
-        /* --- HLAVIČKA A LOGO --- */
         header {
             background-color: var(--bg-absolutni);
             border-bottom: 1px solid var(--barva-primarni);
@@ -58,96 +55,32 @@
             box-shadow: 0 4px 20px var(--barva-primarni-zare);
         }
 
-        .logo-block {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-        }
-
-        .logo-image {
-            height: 45px;
-            width: auto;
-        }
-
-        header h1 {
-            font-size: 1.8rem;
-            letter-spacing: 5px;
-            margin: 0;
-            text-transform: uppercase;
-            color: var(--barva-primarni);
-        }
+        .logo-block { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .logo-image { height: 45px; width: auto; }
+        header h1 { font-size: 1.8rem; letter-spacing: 5px; margin: 0; text-transform: uppercase; color: var(--barva-primarni); }
 
         nav { display: flex; gap: 30px; }
-
-        nav a {
-            color: var(--text-hlavni);
-            text-decoration: none;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: color 0.3s ease;
-        }
-
+        nav a { color: var(--text-hlavni); text-decoration: none; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; transition: color 0.3s; }
         nav a:hover { color: var(--barva-primarni); }
 
-        /* --- HLAVNÍ OBSAH A KARTY (PŮVODNÍ DOKONALÝ DESIGN) --- */
-        main {
-            flex: 1;
-            padding: 60px 50px;
-            max-width: 1400px;
-            margin: 0 auto;
-            width: 100%;
-        }
+        main { flex: 1; padding: 60px 50px; max-width: 1400px; margin: 0 auto; width: 100%; }
 
-        main h2 { font-size: 2.2rem; margin-bottom: 15px; }
-
+        /* OPRAVA CENTROVÁNÍ PODNADPISŮ */
         main p {
             font-size: 1.1rem;
             color: var(--text-tlumeny);
             max-width: 800px;
-            margin-bottom: 50px;
+            margin: 0 auto 50px auto; /* Přidáno auto pro strany - tím se text vycentruje */
+            text-align: center; /* Zajištění vystředění textu uvnitř bloku */
         }
 
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
+        .stats-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .stat-card { background-color: var(--bg-karta); border: 1px solid var(--border-jemny); padding: 50px 30px; text-align: center; border-radius: 4px; transition: 0.4s; }
+        .stat-card:hover { transform: translateY(-5px); border-color: var(--barva-primarni); box-shadow: 0 10px 30px var(--barva-primarni-zare); }
+        .stat-number { font-family: var(--font-nadpis); font-size: 5rem; color: var(--barva-primarni); line-height: 1; margin-bottom: 15px; font-weight: 800; }
+        .stat-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-tlumeny); margin-top: 10px; }
 
-        .stat-card {
-            background-color: var(--bg-karta);
-            border: 1px solid var(--border-jemny);
-            padding: 50px 30px;
-            text-align: center;
-            border-radius: 4px;
-            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--barva-primarni);
-            box-shadow: 0 10px 30px var(--barva-primarni-zare);
-        }
-
-        .stat-number {
-            font-family: var(--font-nadpis);
-            font-size: 5rem;
-            color: var(--barva-primarni);
-            line-height: 1;
-            margin-bottom: 15px;
-            font-weight: 800;
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-tlumeny);
-            margin-top: 10px;
-        }
-
-        /* --- PATIČKA --- */
+        /* PATIČKA S ODKAZEM */
         footer {
             border-top: 1px solid var(--border-jemny);
             text-align: center;
@@ -157,6 +90,12 @@
             letter-spacing: 2px;
             text-transform: uppercase;
         }
+        footer a {
+            color: var(--barva-primarni);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        footer a:hover { opacity: 0.7; }
     </style>
 </head>
 <body>
@@ -166,13 +105,13 @@
 " alt="I.D.E.A. Logo" class="logo-image">
             <h1>I.D.E.A.</h1>
         </a>
-<nav>
-    <a href="{% url 'index' %}">Agora</a>
-    <a href="{% url 'sin_predku' %}">Síň předků</a>
-    <a href="{% url 'dila_seznam' %}">Katalog děl</a>
-    <a href="{% url 'proud_vedomi' %}">Proud vědomí</a>
-    <a href="/admin" target="_blank">Kontrolní centrum</a>
-</nav>
+        <nav>
+            <a href="{% url 'index' %}">Agora</a>
+            <a href="{% url 'sin_predku' %}">Síň předků</a>
+            <a href="{% url 'dila_seznam' %}">Katalog děl</a>
+            <a href="{% url 'proud_vedomi' %}">Proud vědomí</a>
+            <a href="/admin" target="_blank">Kontrolní centrum</a>
+        </nav>
     </header>
     
     <main>
@@ -181,7 +120,7 @@
     </main>
 
     <footer>
-        &copy; 2026 Matouš Tlamka | Interaktivní Databáze Epistemologie a Axiomů
+        &copy; 2026 Matouš Tlamka | <a href="https://matous-tlamka.eu" target="_blank">matous-tlamka.eu</a> | Interaktivní Databáze Epistemologie a Axiomů
     </footer>
 </body>
 </html>

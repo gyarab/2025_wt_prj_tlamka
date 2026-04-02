@@ -6,6 +6,42 @@
         max-width: 900px;
         margin: 0 auto;
     }
+    
+    /* VYHLEDÁVACÍ APARÁT */
+    .search-box {
+        margin-bottom: 50px;
+        display: flex;
+        gap: 10px;
+    }
+    
+    .search-input {
+        flex: 1;
+        background: #050505;
+        border: 1px solid var(--border-jemny);
+        padding: 15px 25px;
+        color: var(--text-hlavni);
+        font-family: var(--font-text);
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.3s;
+    }
+    
+    .search-input:focus {
+        border-color: var(--barva-primarni);
+    }
+    
+    .search-button {
+        background: var(--barva-primarni);
+        color: #000;
+        border: none;
+        padding: 0 30px;
+        font-family: var(--font-text);
+        font-weight: 600;
+        text-transform: uppercase;
+        cursor: pointer;
+        letter-spacing: 1px;
+    }
+
     .proud-karta {
         background: var(--bg-karta);
         border: 1px solid var(--border-jemny);
@@ -13,7 +49,13 @@
         margin-bottom: 40px;
         position: relative;
         box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        transition: border-color 0.3s;
     }
+    
+    .proud-karta:hover {
+        border-color: rgba(255, 102, 0, 0.4);
+    }
+
     .proud-text {
         font-size: 1.6rem;
         font-style: italic;
@@ -43,7 +85,12 @@
 
 <div class="proud-container">
     <h2>Proud vědomí</h2>
-    <p>Axiomatické základy nové existence. Interpretace reality skrze největší myslitele.</p>
+    <p>Hledej v axiomech, které definují podstatu bytí.</p>
+
+    <form method="GET" action="{% url 'proud_vedomi' %}" class="search-box">
+        <input type="text" name="q" class="search-input" placeholder="Hledej myšlenku (např. bůh, vůle, pravda...)" value="{{ dotaz|default:'' }}">
+        <button type="submit" class="search-button">Hledat</button>
+    </form>
     
     {% for axiom in axiomy %}
     <div class="proud-karta">
@@ -56,7 +103,10 @@
         </div>
     </div>
     {% empty %}
-    <p>Ticho. Žádné axiomy zatím nebyly vyřčeny.</p>
+    <div style="text-align: center; padding: 50px;">
+        <p style="color: var(--barva-primarni); font-size: 1.5rem;">V této oblasti myšlení je zatím prázdno.</p>
+        <a href="{% url 'proud_vedomi' %}" style="color: var(--text-tlumeny); text-decoration: underline;">Zpět do celého proudu</a>
+    </div>
     {% endfor %}
 </div>
 {% endblock %}
