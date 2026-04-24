@@ -4,17 +4,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    # 1. Cesta do kontrolního centra
+    # Zde je admin na svém správném místě
     path('admin/', admin.site.urls),
     
-    # 2. Cesta k tvé aplikaci (ZDE BYLA PRAVDĚPODOBNĚ CHYBA REKURZE)
-    # Všimni si přesného zápisu 'prj.app.urls' 
+    # Připojení tvé aplikace
     path('', include('prj.app.urls')),
 ]
 
-# 3. Architektonický bypass pro lokální vývoj
+# Obsluha médií pro vývoj (portréty myslitelů)
 if settings.DEBUG:
-    # Podpora pro statické soubory (CSS, JS)
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    # Podpora pro uživatelsky nahraná média (Obrázky)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
