@@ -8,6 +8,11 @@ Gymnázium Arabská, Praha
 > „Jednoduchost je vrchol sofistikovanosti.“  
 > — Leonardo da Vinci
 
+## Veřejná verze
+
+Veřejná verze stránky je dostupná na adrese:
+[https://idea.matous-tlamka.eu/](https://idea.matous-tlamka.eu/)
+
 ---
 
 # Obsah
