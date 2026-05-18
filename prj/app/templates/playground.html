@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  .pg-wrapper { max-width: 900px; margin: 60px auto; padding: 0 20px; }
+  .pg-nadpis { font-family: var(--font-nadpis); font-size: 2.5rem; color: var(--barva-primarni); margin-bottom: 10px; }
+  .pg-popis { color: var(--text-tlumeny); margin-bottom: 40px; }
+
+  .pg-controls { display: flex; gap: 15px; margin-bottom: 40px; }
+  .pg-input {
+    flex: 1;
+    background: #050505;
+    border: 1px solid var(--border-jemny);
+    color: var(--text-hlavni);
+    padding: 14px 20px;
+    font-family: var(--font-text);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  .pg-input:focus { border-color: var(--barva-primarni); }
+  .pg-button {
+    background: var(--barva-primarni);
+    color: #000;
+    border: none;
+    padding: 14px 30px;
+    font-family: var(--font-text);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .pg-button:hover { opacity: 0.85; }
+
+  .pg-stav { color: var(--text-tlumeny); margin-bottom: 20px; font-size: 0.9rem; letter-spacing: 1px; }
+
+  .pg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px; }
+  .pg-karta {
+    background: var(--bg-karta);
+    border: 1px solid var(--border-jemny);
+    padding: 30px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .pg-karta:hover { border-color: var(--barva-primarni); transform: translateY(-4px); }
+  .pg-jmeno { font-family: var(--font-nadpis); font-size: 1.3rem; color: var(--text-hlavni); margin-bottom: 8px; }
+  .pg-roky { color: var(--barva-primarni); font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 12px; }
+  .pg-bio { color: var(--text-tlumeny); font-size: 0.9rem; line-height: 1.6; }
+</style>
+
+<div class="pg-wrapper">
+  <h1 class="pg-nadpis">API Playground</h1>
+  <p class="pg-popis">Volání endpointu <code>/api/myslitel</code> přes <code>fetch()</code>. Filtruj jménem a stiskni tlačítko.</p>
+
+  <div class="pg-controls">
+    <input id="pg-filtr" class="pg-input" type="text" placeholder="Filtr jménem (např. Nietzsche)…">
+    <button class="pg-button" onclick="nactiMyslitele()">Načíst</button>
+  </div>
+
+  <p id="pg-stav" class="pg-stav"></p>
+  <div id="pg-vysledky" class="pg-grid"></div>
+</div>
+
+<script>
+  function nactiMyslitele() {
+    const filtr = document.getElementById('pg-filtr').value.toLowerCase();
+    const stavEl = document.getElementById('pg-stav');
+    const vysledkyEl = document.getElementById('pg-vysledky');
+
+    stavEl.textContent = 'Načítám…';
+    vysledkyEl.innerHTML = '';
+
+    fetch('/api/myslitel')
+      .then(response => response.json())
+      .then(data => {
+        const filtrovano = filtr
+          ? data.filter(m => m.jmeno.toLowerCase().includes(filtr))
+          : data;
+
+        stavEl.textContent = `Nalezeno: ${filtrovano.length} myslitelů`;
+
+        filtrovano.forEach(myslitel => {
+          const karta = document.createElement('div');
+          karta.className = 'pg-karta';
+          karta.innerHTML = `
+            <div class="pg-jmeno">${myslitel.jmeno}</div>
+            <div class="pg-roky">${myslitel.roky_zivota ?? '—'}</div>
+            <div class="pg-bio">${myslitel.zivotopis.slice(0, 120)}…</div>
+          `;
+          vysledkyEl.appendChild(karta);
+        });
+      })
+      .catch(err => {
+        stavEl.textContent = 'Chyba při načítání: ' + err.message;
+      });
+  }
+</script>
+{% endblock %}

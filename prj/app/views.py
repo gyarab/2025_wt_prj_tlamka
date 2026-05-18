@@ -54,3 +54,6 @@ def proud_vedomi(request):
         'axiomy': axiomy,
         'dotaz': dotaz
     })
+
+def playground(request):
+    return render(request, 'playground.html')

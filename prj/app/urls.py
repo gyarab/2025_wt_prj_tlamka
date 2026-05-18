@@ -20,4 +20,6 @@ urlpatterns = [
     
     # API rozhraní (Ninjutsu tvého systému)
     path("api/", api.urls),
+
+    path('playground/', views.playground, name='playground'),
 ]
