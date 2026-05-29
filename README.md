@@ -5,8 +5,7 @@
 Gymnázium Arabská, Praha  
 Školní rok **2025/2026**
 
-> „Jednoduchost je vrchol sofistikovanosti.“  
-> — Leonardo da Vinci
+> **UPOZORNĚNÍ:** Tento repozitář slouží jako původní vývojové a architektonické jádro projektu. Systém byl zdokonalen a přesunut na finální veřejnou doménu.
 
 ## Veřejná verze
 

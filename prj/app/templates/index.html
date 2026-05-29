@@ -1,21 +1,141 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="7;url=https://idea.matous-tlamka.eu/">
+    <title>I.D.E.A. | Systém přesunut</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --orange: #ff6600;
+            --black: #000000;
+            --obsidian: #0a0a0a;
+            --text: #e0e0e0;
+            --gray: #8a8a8a;
+        }
 
-{% block content %}
-<h2>Stav ontologie</h2>
-<p>Tento systém slouží k exaktnímu mapování dějin lidského myšlení. Vstupujete do prostoru racionální reflexe a absolutních pravd.</p>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--black);
+            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            text-align: center;
+        }
 
-<div class="stats-container">
-    <div class="stat-card">
-        <div class="stat-number">{{ pocet_myslitelu }}</div>
-        <div class="stat-label">Zaznamenaných myslitelů</div>
+        .noise-overlay {
+            position: fixed;
+            inset: 0;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .monolith {
+            position: relative;
+            z-index: 2;
+            background: var(--obsidian);
+            border: 1px solid #1a1a1a;
+            padding: 80px 60px;
+            max-width: 600px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 40px rgba(255,102,0,0.05);
+            animation: pulse-border 4s infinite alternate;
+        }
+
+        @keyframes pulse-border {
+            0% { border-color: #1a1a1a; box-shadow: 0 0 40px rgba(255,102,0,0.05); }
+            100% { border-color: var(--orange); box-shadow: 0 0 60px rgba(255,102,0,0.15); }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--orange);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 0;
+        }
+
+        p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .countdown {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--text);
+            margin: 20px 0;
+            display: block;
+        }
+
+        .btn-enter {
+            display: inline-block;
+            text-decoration: none;
+            border: 1px solid var(--orange);
+            color: var(--orange);
+            padding: 15px 40px;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+
+        .btn-enter:hover {
+            background: var(--orange);
+            color: var(--black);
+            box-shadow: 0 0 20px rgba(255,102,0,0.4);
+        }
+
+        .system-status {
+            margin-top: 40px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: #4a4a4a;
+        }
+    </style>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    
+    <div class="monolith">
+        <h1>Systém Relokován</h1>
+        <p>Tento vývojový repozitář splnil svůj účel. Institut I.D.E.A. byl úspěšně přenesen na svou finální, veřejnou doménu.</p>
+        
+        <div class="countdown" id="timer">7</div>
+        
+        <a href="https://idea.matous-tlamka.eu/" class="btn-enter">Iniciovat přechod</a>
+        
+        <div class="system-status">MATOUŠ TLAMKA — STATUS: ONLINE</div>
     </div>
-    <div class="stat-card">
-        <div class="stat-number">{{ pocet_smeru }}</div>
-        <div class="stat-label">Filozofických směrů</div>
-    </div>
-    <div class="stat-card">
-        <div class="stat-number">{{ pocet_myslenek }}</div>
-        <div class="stat-label">Uchovaných axiomů</div>
-    </div>
-</div>
-{% endblock %}
+
+    <script>
+        let timeLeft = 7;
+        const timerElement = document.getElementById('timer');
+        
+        const countdown = setInterval(() => {
+            timeLeft--;
+            timerElement.textContent = timeLeft;
+            
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                window.location.href = "https://idea.matous-tlamka.eu/";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
