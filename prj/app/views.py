@@ -57,3 +57,6 @@ def proud_vedomi(request):
 
 def playground(request):
     return render(request, 'playground.html')
+
+def vue_app(request):
+    return render(request, 'vue.html')

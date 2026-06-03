@@ -5,8 +5,6 @@ from .models import Myslitel, Dilo, Myslenka
 api = NinjaAPI()
 
 
-# ── Schémata: Myslitel ─────────────────────────────────────
-
 class MyslitelOut(Schema):
     id: int
     jmeno: str
@@ -21,17 +19,6 @@ class MyslitelIn(Schema):
     zivotopis: str
     epocha_id: Optional[int] = None
 
-
-# Speciální schéma pro potřeby asynchronního frontendu Panteonu
-class MyslitelFrontendOut(Schema):
-    id: int
-    jmeno: str
-    epocha: str
-    citat: str
-    inicialy: str
-
-
-# ── Schémata: Dilo ─────────────────────────────────────────
 
 class DiloOut(Schema):
     id: int
@@ -48,8 +35,6 @@ class DiloIn(Schema):
     autor_id: int
 
 
-# ── Schémata: Myslenka ─────────────────────────────────────
-
 class MyslenkOut(Schema):
     id: int
     text: str
@@ -62,41 +47,6 @@ class MyslenkIn(Schema):
     autor_id: int
     dilo_id: Optional[int] = None
 
-
-# ── Endpointy: Speciální uzel pro Vue Frontend ─────────────
-
-@api.get("/myslitele", response=List[MyslitelFrontendOut])
-def seznam_myslitelu_frontend(request):
-    """Vrací optimalizovaná data pro monolitické karty frontendu."""
-    myslitele = Myslitel.objects.all()
-    vysledek = []
-    
-    for m in myslitele:
-        # Získání první myšlenky autora
-        prvni_myslenka = m.myslenka_set.first()
-        myslenka_text = prvni_myslenka.text if prvni_myslenka else "Zatím žádná myšlenka v síti..."
-        
-        # Ošetření vazby na epochu
-        epocha_nazev = m.epocha.nazev if m.epocha else "Neznámá epocha"
-        
-        # Generování iniciál (pokud model nemá metodu ziskej_inicialy)
-        if hasattr(m, 'ziskej_inicialy'):
-            inicialy = m.ziskej_inicialy()
-        else:
-            inicialy = "".join([cast[0].upper() for cast in m.jmeno.split() if cast])[:2]
-            
-        vysledek.append({
-            "id": m.id,
-            "jmeno": m.jmeno,
-            "epocha": epocha_nazev,
-            "citat": myslenka_text,
-            "inicialy": inicialy
-        })
-        
-    return vysledek
-
-
-# ── Endpointy: Myslitel (Původní CRUD) ────────────────────
 
 @api.get("/myslitel", response=List[MyslitelOut])
 def seznam_myslitelu(request):
@@ -123,8 +73,6 @@ def uprav_myslitele(request, myslitel_id: int, data: MyslitelIn):
     return myslitel
 
 
-# ── Endpointy: Dilo (Původní CRUD) ────────────────────────
-
 @api.get("/dilo", response=List[DiloOut])
 def seznam_del(request):
     return Dilo.objects.all()
@@ -149,8 +97,6 @@ def uprav_dilo(request, dilo_id: int, data: DiloIn):
     dilo.save()
     return dilo
 
-
-# ── Endpointy: Myslenka (Původní CRUD) ────────────────────
 
 @api.get("/myslenka", response=List[MyslenkOut])
 def seznam_myslenek(request):

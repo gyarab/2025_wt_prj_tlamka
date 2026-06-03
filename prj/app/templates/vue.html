@@ -1,0 +1,193 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  .vue-wrapper {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+  }
+
+  .vue-nadpis {
+    font-family: var(--font-nadpis);
+    font-size: 2.5rem;
+    color: var(--barva-primarni);
+    margin-bottom: 8px;
+    letter-spacing: 3px;
+  }
+
+  .vue-badge {
+    display: inline-block;
+    background: #1a1a1a;
+    border: 1px solid #42b883;
+    color: #42b883;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    padding: 4px 12px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+  }
+
+  .vue-controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+    align-items: center;
+  }
+
+  .vue-input {
+    flex: 1;
+    background: #050505;
+    border: 1px solid var(--border-jemny);
+    color: var(--text-hlavni);
+    padding: 14px 20px;
+    font-family: var(--font-text);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .vue-input:focus {
+    border-color: var(--barva-primarni);
+  }
+
+  .vue-pocet {
+    color: var(--text-tlumeny);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  .vue-pocet span {
+    color: var(--barva-primarni);
+    font-weight: 700;
+  }
+
+  .vue-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+  }
+
+  .vue-karta {
+    background: var(--bg-karta);
+    border: 1px solid var(--border-jemny);
+    padding: 30px;
+    transition: border-color 0.3s, transform 0.3s;
+    cursor: default;
+  }
+
+  .vue-karta:hover {
+    border-color: var(--barva-primarni);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px var(--barva-primarni-zare);
+  }
+
+  .vue-karta-jmeno {
+    font-family: var(--font-nadpis);
+    font-size: 1.3rem;
+    color: var(--text-hlavni);
+    margin-bottom: 6px;
+  }
+
+  .vue-karta-roky {
+    color: var(--barva-primarni);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+
+  .vue-karta-bio {
+    color: var(--text-tlumeny);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .vue-nacitam {
+    color: var(--text-tlumeny);
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    padding: 40px 0;
+  }
+
+  .vue-prazdno {
+    color: var(--text-tlumeny);
+    letter-spacing: 1px;
+    font-size: 0.95rem;
+    padding: 40px 0;
+  }
+</style>
+
+<div id="vue-app" class="vue-wrapper">
+
+  <h1 class="vue-nadpis">Vue Frontend</h1>
+  <div class="vue-badge">Vue 3 · CDN · Reactive</div>
+
+  <div class="vue-controls">
+    <input
+      v-model="hledani"
+      class="vue-input"
+      type="text"
+      placeholder="Hledej filosofa podle jména…"
+    >
+    <div class="vue-pocet">
+      Zobrazeno: <span>{{ filtrovani.length }}</span> / {{ myslitele.length }}
+    </div>
+  </div>
+
+  <div v-if="nacitam" class="vue-nacitam">Načítám data…</div>
+
+  <div v-else-if="filtrovani.length === 0" class="vue-prazdno">
+    Žádný filosof neodpovídá hledanému výrazu.
+  </div>
+
+  <div v-else class="vue-grid">
+    <div
+      v-for="myslitel in filtrovani"
+      :key="myslitel.id"
+      class="vue-karta"
+    >
+      <div class="vue-karta-jmeno">{{ myslitel.jmeno }}</div>
+      <div class="vue-karta-roky">{{ myslitel.roky_zivota || '—' }}</div>
+      <div class="vue-karta-bio">{{ myslitel.zivotopis.slice(0, 130) }}…</div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<script>
+  const { createApp, ref, computed, onMounted } = Vue
+
+  createApp({
+    setup() {
+      const myslitele = ref([])
+      const hledani = ref('')
+      const nacitam = ref(true)
+
+      const filtrovani = computed(() => {
+        const dotaz = hledani.value.toLowerCase().trim()
+        if (!dotaz) return myslitele.value
+        return myslitele.value.filter(m =>
+          m.jmeno.toLowerCase().includes(dotaz)
+        )
+      })
+
+      onMounted(() => {
+        fetch('/api/myslitel')
+          .then(r => r.json())
+          .then(data => {
+            myslitele.value = data
+            nacitam.value = false
+          })
+          .catch(() => {
+            nacitam.value = false
+          })
+      })
+
+      return { myslitele, hledani, nacitam, filtrovani }
+    }
+  }).mount('#vue-app')
+</script>
+{% endblock %}

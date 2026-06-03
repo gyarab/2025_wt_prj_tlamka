@@ -22,4 +22,6 @@ urlpatterns = [
     path("api/", api.urls),
 
     path('playground/', views.playground, name='playground'),
+
+    path('vue/', views.vue_app, name='vue_app'),
 ]
