@@ -5,7 +5,7 @@
 Gymnázium Arabská, Praha  
 Školní rok **2025/2026**
 
-> **UPOZORNĚNÍ:** Tento repozitář slouží jako původní vývojové a architektonické jádro projektu. Systém byl zdokonalen a přesunut na finální veřejnou doménu.
+> **UPOZORNĚNÍ:** Tento repozitář slouží jako původní vývojové a architektonické jádro projektu. Projekt byl přesunut na finální veřejnou doménu.
 
 ## Veřejná verze
 
